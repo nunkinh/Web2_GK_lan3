@@ -1,0 +1,44 @@
+﻿@model PagedList.IPagedList<CellPhoneConnection.SanPham>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ViewSanPham.cshtml";
+}
+
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-shop-product">
+                        <div class="product-upper">
+                            <img style="height:243px; width: 195px" src="~/Assets/img/Products/@item.a_ID/MainImg.png" alt="@item.a_TenSP">
+                        </div>
+                        <h4><a href="@Url.Action("Details", "SanPham", new { id = @item.a_ID })">@item.a_TenSP</a></h4>
+                        <div class="product-carousel-price">
+                            <ins>@item.a_Gia</ins> <del>@item.a_Gia</del>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-pagination text-center">
+                    <nav>
+                        <ul class="pagination">
+
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
