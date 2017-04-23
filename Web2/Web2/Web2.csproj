@@ -204,10 +204,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QuanLyLoaiSanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyNhaSanXuatController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Areas\Admin\Models\BUS\QuanLyNhaSanXuatBUS.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -479,7 +478,8 @@
     <Content Include="Areas\Admin\Assets\vendor\font-awesome\scss\_spinning.scss" />
     <Content Include="Areas\Admin\Assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Areas\Admin\Assets\vendor\font-awesome\scss\_variables.scss" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -535,10 +535,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\QuanLyLoaiSanPham\" />
-    <Folder Include="Areas\Admin\Views\QuanLyNhaSanXuat\" />
-    <Folder Include="Areas\Admin\Views\QuanLySanPham\" />
     <Folder Include="Assets\img\Products\10\" />
     <Folder Include="Assets\img\Products\11\" />
     <Folder Include="Assets\img\Products\12\" />

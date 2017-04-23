@@ -1,0 +1,61 @@
+﻿@model PagedList.IPagedList<CellPhoneConnection.NhaSanXuat>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "_DanhSachNhaSanXuat";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutForAdmin.cshtml";
+}
+
+
+
+<div id="page-wrapper" style="min-height: 444px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">User management</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Table user
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info" style="width: 100%;">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr class="gradeA odd" role="row">
+                                                <td>@item.a_IDNhaSX</td>
+                                                <td>@item.a_TenNhaSX</td>
+                                                <td>Editor</td>
+                                                <td>Deletetor</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    </div>
+                    <!-- /.table-responsive -->
+
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- /.row -->
+</div>

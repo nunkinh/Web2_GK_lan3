@@ -1,17 +1,20 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web2.Areas.Admin.Models;
 
 namespace Web2.Areas.Admin.Controllers
 {
     public class QuanLyNhaSanXuatController : Controller
     {
         // GET: Admin/QuanLyNhaSanXuat
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 4)
         {
-            return View();
+            var ds = QuanLyNhaSanXuatBUS.DanhSach().ToPagedList(page, pageSize);
+            return View(ds);
         }
 
         // GET: Admin/QuanLyNhaSanXuat/Details/5
