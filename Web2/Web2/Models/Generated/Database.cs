@@ -163,6 +163,12 @@ namespace CellPhoneConnection
 
 
 
+
+
+		[Column] public int a_TinhTrang { get; set; }
+
+
+
 	}
 
     
@@ -186,6 +192,12 @@ namespace CellPhoneConnection
 
 
 		[Column] public string a_TenNhaSX { get; set; }
+
+
+
+
+
+		[Column] public int a_TinhTrang { get; set; }
 
 
 

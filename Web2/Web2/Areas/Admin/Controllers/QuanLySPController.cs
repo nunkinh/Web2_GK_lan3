@@ -1,43 +1,43 @@
-﻿using CellPhoneConnection;
-using PagedList;
+﻿using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Web2.Areas.Admin.Models;
+using Web2.Areas.Admin.Models.BUS;
 
 namespace Web2.Areas.Admin.Controllers
 {
-    public class QuanLyNSXController : Controller
+    public class QuanLySPController : Controller
     {
-        // GET: Admin/QuanLyNhaSanXuat
-        public ActionResult Index(int page = 1, int pageSize = 4)
+        // GET: Admin/QuuanLySP
+        public ActionResult Index(int page = 1, int pageSize = 8)
         {
-            var ds = QuanLyNhaSanXuatBUS.DanhSach().ToPagedList(page, pageSize);
+            var ds = QuanLySanPhamBUS.DanhSach().ToPagedList(page, pageSize);
             return View(ds);
         }
 
-        // GET: Admin/QuanLyNhaSanXuat/Details/5
+        // GET: Admin/QuuanLySP/Details/5
         public ActionResult Details(int id)
-        {
-            return View(QuanLyNhaSanXuatBUS.ChiTIet(id));
-        }
-
-        // GET: Admin/QuanLyNhaSanXuat/Create
-        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/QuanLyNhaSanXuat/Create
+        // GET: Admin/QuuanLySP/Create
+        public ActionResult Create()
+        {
+
+            return View();
+        }
+
+        // POST: Admin/QuuanLySP/Create
         [HttpPost]
-        public ActionResult Create(NhaSanXuat nsx)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                QuanLyNhaSanXuatBUS.Them1NSX(nsx);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -46,20 +46,20 @@ namespace Web2.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/QuanLyNhaSanXuat/Edit/5
+        // GET: Admin/QuuanLySP/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(QuanLyNhaSanXuatBUS.ChiTIet(id));
+            return View();
         }
 
-        // POST: Admin/QuanLyNhaSanXuat/Edit/5
+        // POST: Admin/QuuanLySP/Edit/5
         [HttpPost]
-        public ActionResult Edit(NhaSanXuat nsx)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-                QuanLyNhaSanXuatBUS.CapNhat1NSX(nsx);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -68,16 +68,15 @@ namespace Web2.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/QuanLyNhaSanXuat/Delete/5
+        // GET: Admin/QuuanLySP/Delete/5
         public ActionResult Delete(int id)
         {
-            QuanLyNhaSanXuatBUS.XoaNhaSanXuat(id);
-            return RedirectToAction("Index");
+            return View();
         }
 
-        // POST: Admin/QuanLyNhaSanXuat/Delete/5
+        // POST: Admin/QuuanLySP/Delete/5
         [HttpPost]
-        public ActionResult Delete(FormCollection collection)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {

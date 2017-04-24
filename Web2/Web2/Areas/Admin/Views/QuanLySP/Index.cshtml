@@ -1,16 +1,17 @@
-﻿@model PagedList.IPagedList<CellPhoneConnection.NhaSanXuat>
+﻿@model PagedList.IPagedList<CellPhoneConnection.SanPham>
 @using PagedList.Mvc;
+
 @{
-    ViewBag.Title = "_DanhSachNhaSanXuat";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutForAdmin.cshtml";
 }
 
-
+<h2>Index</h2>
 
 <div id="page-wrapper" style="min-height: 444px;">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">User management</h1>
+            <h1 class="page-header">Product Management</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -19,7 +20,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="#">Add user!</a>
+                    <a href="#">Add product!</a>
                 </div>
                 <div class="panel-heading">
                     Edit user!
@@ -34,22 +35,18 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>ID</td>
-                                            <td>Ten nha san xuat</td>
-                                            <td>Tinh trang</td>
+                                            <td>Tên sản phẩm</td>
+                                            <td>Loại sản phẩm</td>
+                                            <td>Nhà sản xuất</td>
                                         </tr>
                                         @foreach (var item in Model)
                                         {
                                             <tr class="gradeA odd" role="row">
-                                                <td>@item.a_IDNhaSX</td>
-                                                <td>@item.a_TenNhaSX</td>
-                                                <td>@item.a_TinhTrang</td>
-                                                <td>
-                                                    <button> 
-                                                    <a href="@Url.Action("Edit", "QuanLyNSX", new { id = @item.a_IDNhaSX })">Edit</a></button></td>
-                                                <td>
-                                                    <button><a href="@Url.Action("Delete", "QuanLyNSX", new { id = @item.a_IDNhaSX })">Remove</a></button>
-                                                </td>
+                                                <td>@item.a_TenSP</td>
+                                                <td>@item.a_LoaiSanPham</td>
+                                                <td>@item.a_HangSanXuat</td>
+                                                <td><a href="#">Edit</a></td>
+                                                <td><a href="#">Remove</a></td>
                                             </tr>
                                         }
 
@@ -69,6 +66,5 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-
     <!-- /.row -->
 </div>

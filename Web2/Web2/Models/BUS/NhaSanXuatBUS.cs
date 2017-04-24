@@ -16,7 +16,7 @@ namespace Web2.Models.BUS
         public static IEnumerable<SanPham> ChiTIet(int id_NhaSanXuat)
         {
             var db = new CellPhoneConnectionDB();
-            return db.Query<SanPham>("select * from SanPham where a_HangSanXuat = " +id_NhaSanXuat);
+            return db.Query<SanPham>("select * from SanPham where a_HangSanXuat = @0", id_NhaSanXuat);
         }
     }
 }

@@ -13,15 +13,30 @@ namespace Web2.Areas.Admin.Models
             var db = new CellPhoneConnectionDB();
             return db.Query<NhaSanXuat>("select * from NhaSanXuat");
         }
-        public static IEnumerable<SanPham> ChiTIet(int id_NhaSanXuat)
+        public static NhaSanXuat ChiTIet(int id_NhaSanXuat)
         {
             var db = new CellPhoneConnectionDB();
-            return db.Query<SanPham>("select * from SanPham where a_HangSanXuat = " + id_NhaSanXuat);
+            return db.SingleOrDefault<NhaSanXuat>("select * from NhaSanXuat where a_IDNhaSX = @0", id_NhaSanXuat);
         }
         public static void Them1NSX(NhaSanXuat nsx)
         {
             var db = new CellPhoneConnectionDB();
             db.Insert("NhaSanXuat","a_IDNhaSX",true, nsx);
+        }
+        public static void CapNhat1NSX(NhaSanXuat nsx)
+        {
+            var db = new CellPhoneConnectionDB();
+            db.Update("NhaSanXuat", "a_IDNhaSX", nsx);
+        }
+        public static void XoaNhaSanXuat(int id)
+        {
+            var db = new CellPhoneConnectionDB();
+            NhaSanXuat ob = db.SingleOrDefault<NhaSanXuat>("select * from NhaSanXuat where a_IDNhaSX = @0", id);
+            if (ob.a_TinhTrang == 0)
+            {
+                ob.a_TinhTrang = 1;
+                db.Update("NhaSanXuat", "a_IDNhaSX", ob);
+            }
         }
     }
 }
