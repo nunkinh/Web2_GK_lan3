@@ -1,4 +1,5 @@
-﻿using PagedList;
+﻿using CellPhoneConnection;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using Web2.Areas.Admin.Models;
 
 namespace Web2.Areas.Admin.Controllers
 {
-    public class QuanLyNhaSanXuatController : Controller
+    public class QuanLyNSXController : Controller
     {
         // GET: Admin/QuanLyNhaSanXuat
         public ActionResult Index(int page = 1, int pageSize = 4)
@@ -31,12 +32,12 @@ namespace Web2.Areas.Admin.Controllers
 
         // POST: Admin/QuanLyNhaSanXuat/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(NhaSanXuat nsx)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                QuanLyNhaSanXuatBUS.Them1NSX(nsx);
                 return RedirectToAction("Index");
             }
             catch

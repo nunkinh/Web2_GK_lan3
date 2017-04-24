@@ -205,7 +205,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\QuanLyNhaSanXuatController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyNSXController.cs" />
     <Compile Include="Areas\Admin\Models\BUS\QuanLyNhaSanXuatBUS.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -479,7 +479,8 @@
     <Content Include="Areas\Admin\Assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Areas\Admin\Assets\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNSX\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNSX\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
