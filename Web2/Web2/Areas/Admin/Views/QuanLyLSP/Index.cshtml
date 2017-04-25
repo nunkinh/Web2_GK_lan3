@@ -1,16 +1,14 @@
-﻿@model PagedList.IPagedList<CellPhoneConnection.NhaSanXuat>
+﻿@model PagedList.IPagedList<CellPhoneConnection.LoaiSanPham>
 @using PagedList.Mvc;
 @{
-    ViewBag.Title = "_DanhSachNhaSanXuat";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutForAdmin.cshtml";
 }
-
-
 
 <div id="page-wrapper" style="min-height: 444px;">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Quan ly nha san xuat</h1>
+            <h1 class="page-header">Quan ly Loai san pham</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -20,11 +18,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <button>
-                        <a href="@Url.Action("Create","QuanLyNSX")">Them moi!</a>
+                        <a href="@Url.Action("Create","QuanLyLSP")">Them moi!</a>
                     </button>
                 </div>
                 <div class="panel-heading">
-                    Danh sach:
+                    Danh muc:
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -37,23 +35,25 @@
                                     <tbody>
                                         <tr>
                                             <td>ID</td>
-                                            <td>Ten nha san xuat</td>
+                                            <td>Ten loai san pham</td>
                                             <td>Tinh trang</td>
                                         </tr>
                                         @foreach (var item in Model)
                                         {
                                             <tr class="gradeA odd" role="row">
-                                                <td>@item.a_IDNhaSX</td>
-                                                <td>@item.a_TenNhaSX</td>
+                                                <td>@item.a_IDLoaiSP</td>
+                                                <td>@item.a_TenLoaiSP</td>
                                                 <td>@item.a_TinhTrang</td>
                                                 <td>
-                                                    <button><a href="@Url.Action("Edit", "QuanLyNSX", new { id = @item.a_IDNhaSX })">Edit</a></button>
+                                                    <button>
+                                                        <a href="@Url.Action("Edit", "QuanLyLSP", new { id = @item.a_IDLoaiSP })">Edit</a>
+                                                    </button>
                                                 </td>
                                                 <td>
-                                                    <button><a href="@Url.Action("Deny", "QuanLyNSX", new { id = @item.a_IDNhaSX })">Deny</a></button>
+                                                    <button><a href="@Url.Action("Deny", "QuanLyLSP", new { id = @item.a_IDLoaiSP })">Deny</a></button>                                                
                                                 </td>
                                                 <td>
-                                                    <button><a href="@Url.Action("Allow", "QuanLyNSX", new { id = @item.a_IDNhaSX })">Allow</a></button>
+                                                    <button><a href="@Url.Action("Allow", "QuanLyLSP", new { id = @item.a_IDLoaiSP })">Allow</a></button>
                                                 </td>
                                             </tr>
                                         }
@@ -74,6 +74,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-
     <!-- /.row -->
 </div>
+

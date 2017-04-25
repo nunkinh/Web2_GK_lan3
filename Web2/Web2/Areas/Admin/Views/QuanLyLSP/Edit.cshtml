@@ -1,0 +1,69 @@
+﻿@model CellPhoneConnection.LoaiSanPham
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutForAdmin.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Chinh sua 1 Loai san pham</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="#">Thông tin chi tiết:</a>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @using (Html.BeginForm("Edit", "QuanLyLSP", FormMethod.Post, new { @class = "form-horizontal" }))
+                            {
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="id">ID Loai san pham:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="id" name="a_IDLoaiSP" value="@Model.a_IDLoaiSP" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="TenLoaiSanPham">Tên Nhà sản xuất:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" required class="form-control" id="TenLoaiSanPham" name="a_TenLoaiSP" value="@Model.a_TenLoaiSP">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="TinhTrang">Tinh trang:</label>
+                                    <div class="col-sm-10">
+
+                                        <select id="TinhTrang" name="a_TinhTrang" required>
+                                            @if (Model.a_TinhTrang == 0)
+                                            {
+                                                <option value="0" selected>Hien thi</option>
+                                                <option value="1">An</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="1" selected>An</option>
+                                                <option value="0">Hien thi</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default">Cập nhật</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

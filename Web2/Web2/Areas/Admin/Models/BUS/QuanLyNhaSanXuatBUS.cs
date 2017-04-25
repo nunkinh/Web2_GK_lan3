@@ -28,13 +28,23 @@ namespace Web2.Areas.Admin.Models
             var db = new CellPhoneConnectionDB();
             db.Update("NhaSanXuat", "a_IDNhaSX", nsx);
         }
-        public static void XoaNhaSanXuat(int id)
+        public static void Deny(int id)
         {
             var db = new CellPhoneConnectionDB();
             NhaSanXuat ob = db.SingleOrDefault<NhaSanXuat>("select * from NhaSanXuat where a_IDNhaSX = @0", id);
             if (ob.a_TinhTrang == 0)
             {
                 ob.a_TinhTrang = 1;
+                db.Update("NhaSanXuat", "a_IDNhaSX", ob);
+            }
+        }
+        public static void Allow(int id)
+        {
+            var db = new CellPhoneConnectionDB();
+            NhaSanXuat ob = db.SingleOrDefault<NhaSanXuat>("select * from NhaSanXuat where a_IDNhaSX = @0", id);
+            if (ob.a_TinhTrang == 1)
+            {
+                ob.a_TinhTrang = 0;
                 db.Update("NhaSanXuat", "a_IDNhaSX", ob);
             }
         }

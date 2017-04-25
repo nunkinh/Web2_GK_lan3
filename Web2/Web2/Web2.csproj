@@ -205,8 +205,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyLSPController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyNSXController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLySPController.cs" />
+    <Compile Include="Areas\Admin\Models\BUS\QuanLyLoaiSanPhamBUS.cs" />
     <Compile Include="Areas\Admin\Models\BUS\QuanLyNhaSanXuatBUS.cs" />
     <Compile Include="Areas\Admin\Models\BUS\QuanLySanPhamBUS.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -487,6 +489,9 @@
     <Content Include="Areas\Admin\Views\QuanLyNSX\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyNSX\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyNSX\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLSP\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLSP\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLSP\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

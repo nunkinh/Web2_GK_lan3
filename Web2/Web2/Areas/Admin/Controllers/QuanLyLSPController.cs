@@ -6,38 +6,39 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Web2.Areas.Admin.Models;
+using Web2.Areas.Admin.Models.BUS;
 
 namespace Web2.Areas.Admin.Controllers
 {
-    public class QuanLyNSXController : Controller
+    public class QuanLyLSPController : Controller
     {
-        // GET: Admin/QuanLyNhaSanXuat
+        // GET: Admin/QuanLyLSP
         public ActionResult Index(int page = 1, int pageSize = 4)
         {
-            var ds = QuanLyNhaSanXuatBUS.DanhSach().ToPagedList(page, pageSize);
+            var ds = QuanLyLoaiSanPhamBUS.DanhSach().ToPagedList(page, pageSize);
             return View(ds);
         }
 
-        // GET: Admin/QuanLyNhaSanXuat/Details/5
+        // GET: Admin/QuanLyLSP/Details/5
         public ActionResult Details(int id)
         {
-            return View(QuanLyNhaSanXuatBUS.ChiTIet(id));
+            return View();
         }
 
-        // GET: Admin/QuanLyNhaSanXuat/Create
+        // GET: Admin/QuanLyLSP/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/QuanLyNhaSanXuat/Create
+        // POST: Admin/QuanLyLSP/Create
         [HttpPost]
-        public ActionResult Create(NhaSanXuat nsx)
+        public ActionResult Create(LoaiSanPham item)
         {
             try
             {
                 // TODO: Add insert logic here
-                QuanLyNhaSanXuatBUS.Them1NSX(nsx);
+                QuanLyLoaiSanPhamBUS.Them1LSP(item);
                 return RedirectToAction("Index");
             }
             catch
@@ -46,20 +47,20 @@ namespace Web2.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/QuanLyNhaSanXuat/Edit/5
+        // GET: Admin/QuanLyLSP/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(QuanLyNhaSanXuatBUS.ChiTIet(id));
+            return View(QuanLyLoaiSanPhamBUS.ChiTIet(id));
         }
 
-        // POST: Admin/QuanLyNhaSanXuat/Edit/5
+        // POST: Admin/QuanLyLSP/Edit/5
         [HttpPost]
-        public ActionResult Edit(NhaSanXuat nsx)
+        public ActionResult Edit(LoaiSanPham item)
         {
             try
             {
                 // TODO: Add update logic here
-                QuanLyNhaSanXuatBUS.CapNhat1NSX(nsx);
+                QuanLyLoaiSanPhamBUS.CapNhat1LSP(item);
                 return RedirectToAction("Index");
             }
             catch
@@ -68,21 +69,21 @@ namespace Web2.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/QuanLyNhaSanXuat/Deny/5
+        // GET: Admin/QuanLyLSP/Deny/5
         public ActionResult Deny(int id)
         {
-            QuanLyNhaSanXuatBUS.Deny(id);
+            QuanLyLoaiSanPhamBUS.Deny(id);
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
-        // GET: Admin/QuanLyNhaSanXuat/Allow/5
+        // GET: Admin/QuanLyLSP/Allow/5
         public ActionResult Allow(int id)
         {
-            QuanLyNhaSanXuatBUS.Allow(id);
+            QuanLyLoaiSanPhamBUS.Allow(id);
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
-        // POST: Admin/QuanLyNhaSanXuat/Delete/5
+        // POST: Admin/QuanLyLSP/Delete/5
         [HttpPost]
-        public ActionResult Delete(FormCollection collection)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
